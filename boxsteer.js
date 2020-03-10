@@ -172,8 +172,8 @@ flex = tutorial_canvas.getBoundingClientRect();
   class Selectedcell{
       constructor(cell){
           this.cell = cell
-          this.view = new Rectangle(0,0, this.cell.box.width*5, this.cell.box.height*5, "black")
-          this.walls = new Rectangle(0,0, 5+(this.cell.box.width*5), 5+(this.cell.box.height*5), "white")
+          this.view = new Rectangle(0,0, this.cell.box.height*5, this.cell.box.width*5, "black")
+          this.walls = new Rectangle(0,0, 5+(this.cell.box.height*5), 5+(this.cell.box.width*5), "white")
           this.viewball = new Circle(5*(this.cell.ball.x-this.cell.box.x), 5*(this.cell.ball.y-this.cell.box.y), 5, this.cell.ball.color)
       }
       draw(){
@@ -285,14 +285,14 @@ flex = tutorial_canvas.getBoundingClientRect();
 
     // example objects
     
-    let splork1 = new Cell(300,300, 30, 30)
-    let splork2 = new Cell(270,300, 30, 30)
-    let splork3 = new Cell(240,300, 30, 30)
-    let splork4 = new Cell(300,270, 30, 30)
-    let splork5 = new Cell(270,270, 30, 30)
-    let splork6 = new Cell(240,270, 30, 30)
-    let splork7 = new Cell(300,240, 30, 30)
-    let splork8 = new Cell(270,240, 30, 30)
+    let splork1 = new Cell(300,300, 10, 30)
+    let splork2 = new Cell(270,300, 30, 10)
+    let splork3 = new Cell(240,300, 10, 30)
+    let splork4 = new Cell(300,270, 30, 10)
+    let splork5 = new Cell(270,270, 10, 30)
+    let splork6 = new Cell(240,270, 30, 10)
+    let splork7 = new Cell(300,260, 10, 100)
+    let splork8 = new Cell(270,240, 30, 10)
     let splork9 = new Cell(240,240, 30, 30)
 
     let guy = new Animal()
@@ -315,7 +315,7 @@ flex = tutorial_canvas.getBoundingClientRect();
     let viewer = new Selectedcell(guy.body[0])
 // interval, fill this with game logic 
     window.setInterval(function(){ 
-        tutorial_canvas_context.clearRect(0, 0, tutorial_canvas.width, tutorial_canvas.height)  // refreshes the image
+        // tutorial_canvas_context.clearRect(0, 0, tutorial_canvas.width, tutorial_canvas.height)  // refreshes the image
 
         players(viewer.cell.ball)
         viewer.draw()
@@ -379,7 +379,7 @@ function getRandomLightColor() {
     var letters = '0123456789ABCDEF';
     var color = '#';
     for (var i = 0; i < 6; i++) {
-      color += letters[(Math.floor(Math.random() * 15)+1)];
+      color += letters[(Math.floor(Math.random() * 12)+4)];
     }
     return color;
   }
